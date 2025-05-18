@@ -1,0 +1,15 @@
+{
+  "name": "videoapp",
+  "version": "1.0.0",
+  "description": "baceknd dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "javascript"
+  ],
+  "author": "deb",
+  "license": "ISC"
+}

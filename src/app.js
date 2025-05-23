@@ -18,4 +18,10 @@ app.use(express.urlencoded())//url config
 app.use(express.static('public'))//to store static data in our own server
 app.use(cookieParser())//to parse cookies
 
+//import route
+import userRoute from './routes/user.routes.js'
+
+//route declarartion
+app.use('/api/v1/user',userRoute)
+
 export {app}

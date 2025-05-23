@@ -53,15 +53,16 @@ const userSchema=new Schema({
 },{timestamps:true})
 
 userSchema.pre('save',async function(next)
-{
-    if(!this.isModified("password"))
-    {
-        return next()
-    }
-    this.password=bcrypt.hash(this.password,10)
-    next()//pass on the flag
+                    {
+                        if(!this.isModified("password"))//i.e no change done to password field so sam epassword again
+                        {
+                            return next()
+                        }
+                        this.password=await bcrypt.hash(this.password,10)
+                        next()//pass on the flag
 
-})//just before saving in DB
+                    }
+)//just before saving in DB
 
 userSchema.methods.isPasswordCorrect=async function(password){
     return await bcrypt.compare(password,this.password)
@@ -96,3 +97,7 @@ userSchema.methods.generateRefreshToken=function(){
 }
 
 export const User=mongooose.model('User',userSchema)
+
+
+
+

@@ -1,4 +1,4 @@
-import mongoose,{Schema} from mongoose
+import mongoose,{Schema} from 'mongoose'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
@@ -30,8 +30,9 @@ const userSchema=new Schema({
         required:true,
 
     },
-    coverimage:{
+    coverImage:{
         type:String,//cloudinary url
+        default:""
     },
     watchHistory:[
         {
@@ -46,7 +47,6 @@ const userSchema=new Schema({
     },
     refreshToken:{
         type:String,
-        required:true
     }
 
 
@@ -70,7 +70,7 @@ userSchema.methods.isPasswordCorrect=async function(password){
 }
 
 userSchema.methods.generateAccessToken=function(){
-    jwt.sign(
+    return jwt.sign(
         {
             _id:this._id,
             username:this.username,
@@ -85,7 +85,7 @@ userSchema.methods.generateAccessToken=function(){
 }
 
 userSchema.methods.generateRefreshToken=function(){
-    jwt.sign(
+    return jwt.sign(
         {
             _id:this._id,
         },
@@ -96,7 +96,7 @@ userSchema.methods.generateRefreshToken=function(){
     )
 }
 
-export const User=mongooose.model('User',userSchema)
+export const User=mongoose.model('User',userSchema)
 
 
 

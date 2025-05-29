@@ -6,8 +6,10 @@ import { ApiResponse } from '../utils/ApiResponse.js'
 import jwt from "jsonwebtoken"
 import mongoose from 'mongoose'
 
-const generateAccessTokenAndRefreshToken=async(userId)=>{
-    try{
+const generateAccessTokenAndRefreshToken=async(userId)=>
+{
+    try
+    {
         const user=await User.findById(userId)
         const accessToken=user.generateAccessToken()
         const refreshToken=user.generateRefreshToken()

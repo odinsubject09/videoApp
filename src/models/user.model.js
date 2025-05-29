@@ -54,7 +54,7 @@ const userSchema=new Schema({
 
 userSchema.pre('save',async function(next)
                     {
-                        if(!this.isModified("password"))//i.e no change done to password field so sam epassword again
+                        if(!this.isModified("password"))//i.e no change done to password field so same password again
                         {
                             return next()
                         }

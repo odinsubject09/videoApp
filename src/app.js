@@ -20,8 +20,10 @@ app.use(cookieParser())//to parse cookies
 
 //import route
 import userRoute from './routes/user.routes.js'
-
+import commentRouter from "./routes/comment.routes.js"
+import likeRouter from "./routes/like.route.js"
 //route declarartion
 app.use('/api/v1/user',userRoute)
-
+app.use("/api/v1/comments", commentRouter)
+app.use("/api/v1/likes",likeRouter)
 export {app}

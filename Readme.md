@@ -1,6 +1,6 @@
 This is a full-featured backend project for a video hosting platform (like YouTube), built using modern backend technologies and architecture. It handles everything from user authentication to video upload, likes/dislikes, comments/replies, subscriptions, and more.
 
-Designed with production-level practices in mind, this project is ideal for learning and scaling real-world applications.
+Designed with production-level practices in mind
 
 🚀 Features
 🔐 Authentication & Authorization
